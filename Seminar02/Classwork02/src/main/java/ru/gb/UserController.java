@@ -13,7 +13,7 @@ import java.util.List;
  */
 // @Controller //Аннотация означает что класс является БИН и является контроллером
 @RestController
-// @RestController все аннотации помечаются @ResponseBody, тюе возвращается не страница, а объекты
+// @RestController все аннотации помечаются @ResponseBody, т.е возвращается не страница, а объекты
 @RequestMapping("/users")
 public class UserController {
 
