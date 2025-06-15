@@ -35,3 +35,22 @@
 ~~~
    curl -X DELETE http://localhost:8080/api/tasks/1
 ~~~
+
+### Удобный инструмент отладки наравне с postman
+Называется: httpie
+~~~
+https://httpie.io/download
+~~~
+
+
+### работающий пример именно для Spring Boot:
+~~~
+   <dependency>
+       <groupId>org.springdoc</groupId>
+       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+       <version>2.8.9</version>
+   </dependency>
+~~~
+
+По дефолту откроет swagger на странице: http://localhost:8080/swagger-ui/index.html
+А по адресу http://localhost:8080/v3/api-docs откроет документацию в формате JSON.
