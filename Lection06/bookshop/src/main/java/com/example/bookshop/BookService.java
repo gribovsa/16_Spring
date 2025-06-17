@@ -1,5 +1,6 @@
 package com.example.bookshop;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,24 +16,21 @@ import java.util.Optional;
  * ● private final BookRepository bookRepository; Здесь мы инжектируем наш
  * репозиторий в сервис. Это позволяет нам использовать методы репозитория
  * внутри сервиса.
- * ● @Autowired: Это аннотация Spring, которая автоматически инжектит бин в
- * конструктор. В данном случае, Spring будет автоматически передавать
- * экземпляр BookRepository при создании экземпляра BookService.
+ * ● @RequiredArgsConstructor //это lombok, сделает конструктор с полем final bookRepository
  * ● public List findAll(); public Optional findById(Long id); public Book save(Book
  * book); public void deleteById(Long id); Это наши методы сервиса. Каждый из
  * этих методов обращается к соответствующему методу репозитория для
  * выполнения операции и возвращает результат.
  */
 @Service
+@RequiredArgsConstructor
 public class BookService {
     private final BookRepository bookRepository;
-    @Autowired
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
+
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
+    // Метод поиска книги по ID. Optional - означает, что не факт что найдётся
     public Optional<Book> findById(Long id) {
         return bookRepository.findById(id);
     }

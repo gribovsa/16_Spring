@@ -1,6 +1,7 @@
 package com.example.bookshop;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * Здесь:
@@ -15,6 +16,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * с которым будет работать репозиторий, а Long - тип идентификатора этой
  * сущности.
  */
+@Repository
 public interface BookRepository extends JpaRepository<Book,Long> {
     /*
         Итак, в нашем репозитории у нас уже есть базовые CRUD-операции. В случае

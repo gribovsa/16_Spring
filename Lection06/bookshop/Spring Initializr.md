@@ -5,6 +5,7 @@
    последняя стабильная версия).
 3. Введите информацию о проекте в соответствующие поля.
 4. Добавьте необходимые зависимости. Для нашего проекта нам понадобятся:
-   Spring Web, Spring Data JPA, Spring HATEOAS и H2 Database.
+   Lombok, Spring Web, Spring Data JPA, PostgreSQL Driver.  
+   Зачем непонятно Spring HATEOAS и H2 Database.
 5. Нажмите “Generate” для создания проекта.
    

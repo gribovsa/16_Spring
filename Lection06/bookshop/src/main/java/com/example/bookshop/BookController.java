@@ -1,5 +1,6 @@
 package com.example.bookshop;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +16,10 @@ import java.util.Optional;
  * ● @RequestMapping(“/books”): Эта аннотация задает базовый маршрут для
  * всех методов в этом контроллере. В данном случае, все наши эндпоинты
  * будут начинаться с “/books”.
+ * ● @RequiredArgsConstructor //это lombok, сделает конструктор с полем final bookService
  * ● private final BookService bookService; Здесь мы инжектируем наш сервис в
  * контроллер. Это позволяет нам использовать методы сервиса внутри
  * контроллера.
- * ● @Autowired: Эта аннотация Spring автоматически инжектирует бин в
- * конструктор. В данном случае, Spring будет автоматически передавать
- * экземпляр BookService при создании экземпляра BookController.
  * ● @GetMapping; @PostMapping; @PutMapping; @DeleteMapping: Эти
  * аннотации Spring задают HTTP-метод для каждого из методов контроллера.
  * Они соответствуют стандартным CRUD-операциям: получение, создание,
@@ -33,17 +32,17 @@ import java.util.Optional;
  * выполнения операции и возвращает результат.
  * Таким образом, слой контроллеров отвечает за обработку HTTP-запросов и
  * взаимодействует со слоем сервисов для выполнения бизнес-логики.
+ * ● ResponseEntity - некая обёртка, "ответная сущность" позволяет вернуть не только что-то,
+ * но и код ответа.
  */
 @RestController
 @RequestMapping("/books")
+@RequiredArgsConstructor //сделает конструктор с полем final bookService
 public class BookController {
 
     private final BookService bookService;
 
-    @Autowired
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
+
     @GetMapping
     public List<Book> findAll() {
         return bookService.findAll();

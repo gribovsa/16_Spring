@@ -1,10 +1,9 @@
 package com.example.bookshop;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -18,14 +17,19 @@ import lombok.Setter;
  * ● private Long id; private String title; private String author; private String isbn;
  * private int publicationYear; Это поля нашего класса. Каждое поле
  * представляет собой атрибут, который мы хотим хранить для каждой книги.
- * 15
- * ● getters and setters: Это методы, которые позволяют нам получать и
- * устанавливать значения полей класса, созданы используя аннотации (lombok)
+ * ● @Getters and @Setters: Это методы, которые позволяют нам получать и
+ * устанавливать значения полей класса, созданы используя lombok.
+ * ● @AllArgsConstructor - Создание конструктора, включающим все не финальные поля. Используя lombok.
+ * ● @NoArgsConstructor - Создания конструктора без аргументов. Опять же lombok.
+ *
  */
 
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Table(name = "books")
 public class Book {
 
     @Id
@@ -36,4 +40,10 @@ public class Book {
     private String isbn;
     private int publicationYear;
 
+    public Book(String title, String author, String isbn, int publicationYear) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.publicationYear = publicationYear;
+    }
 }
