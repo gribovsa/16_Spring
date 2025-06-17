@@ -2,11 +2,15 @@ package org.gribov.mynotes;
 
 import jakarta.persistence.*;
 
-//@Entity: эта аннотация указывает, что класс является JPA сущностью.
+/**
+ * Класс NoteEntity для работы с базой данных (ждя создания базы данных)
+ * (классы Note и NoteEntity принято разделять)
+ */
+// @Entity: эта аннотация указывает, что класс является JPA сущностью.
 @Entity
 
-//@Table: эта аннотация позволяет нам указать имя таблицы, на которую будет
-//отображаться наш класс.
+// @Table: эта аннотация позволяет нам указать имя таблицы, на которую будет
+// отображаться наш класс.
 @Table(name = "notes")
 public class NoteEntity {
 
@@ -19,15 +23,24 @@ public class NoteEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    // поле обязательно для заполнения nullable = false
     @Column(nullable = false)
     private String author;
 
     @Column(nullable = false)
     private String title;
 
+    // поле с ограничением длинны
     @Column(nullable = false, length = 2000)
     private String content;
 
+    // для работы с сущностью необходим пустой конструктор
+    public NoteEntity() {
+    }
+
+
+
+    // геттеры и сеттеры
     public Long getId() {
         return id;
     }

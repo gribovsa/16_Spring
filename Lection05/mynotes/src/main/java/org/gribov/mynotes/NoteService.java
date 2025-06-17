@@ -15,22 +15,22 @@ public interface NoteService {
     /**
      * Получить все заметки
      */
-    List<Note> getAllNotes();
+    List<NoteEntity> getAllNotes();
 
     /**
      * Получить заметку по ID
      */
-    Note getNoteById(Long id);
+    NoteEntity getNoteById(Long id);
 
     /**
      * Создать новую заметку
      */
-    Note createNote(Note note);
+    NoteEntity createNote(NoteEntity note);
 
     /**
      * Обновить существующую заметку
      */
-    Note updateNote(Long id, Note note);
+    NoteEntity updateNote(Long id, NoteEntity note);
 
     /**
      * Удалить заметку

@@ -27,25 +27,25 @@ public class NoteServiceImpl implements NoteService {
     //Реализация методов
 
     @Override
-    public List<Note> getAllNotes() {
+    public List<NoteEntity> getAllNotes() {
         return repository.findAll();
     }
 
     @Override
-    public Note getNoteById(Long id) {
+    public NoteEntity getNoteById(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Note not found"));
     }
 
     @Override
-    public Note createNote(Note note) {
+    public NoteEntity createNote(NoteEntity note) {
         return repository.save(note);
     }
 
     @Override
-    public Note updateNote(Long id, Note note) {
+    public NoteEntity updateNote(Long id, NoteEntity note) {
     // мы должны сначала проверить, существует ли заметка с данным ID
-        Note existingNote = getNoteById(id);
+        NoteEntity existingNote = getNoteById(id);
     // обновляем поля существующей заметки
         existingNote.setTitle(note.getTitle());
         existingNote.setContent(note.getContent());

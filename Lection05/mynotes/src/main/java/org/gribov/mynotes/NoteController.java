@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/notes")
+@RequestMapping("/notes")
 public class NoteController {
 
-    //Передаём интерфейс методы которого реализованы в спец классе сервиса NoteServiceImpl
+    //Передаём интерфейс методы которого реализованы в специальном классе сервиса NoteServiceImpl
+    //spring сам найдёт NoteServiceImpl
     private final NoteService service;
 
     /**
@@ -27,19 +28,19 @@ public class NoteController {
     */
 
     @GetMapping
-    public List<Note> getAllNotes() {
+    public List<NoteEntity> getAllNotes() {
         return service.getAllNotes();
     }
     @GetMapping("/{id}")
-    public Note getNoteById(@PathVariable Long id) {
+    public NoteEntity getNoteById(@PathVariable Long id) {
         return service.getNoteById(id);
     }
     @PostMapping
-    public Note createNote(@RequestBody Note note) {
+    public NoteEntity createNote(@RequestBody NoteEntity note) {
         return service.createNote(note);
     }
     @PutMapping("/{id}")
-    public Note updateNote(@PathVariable Long id, @RequestBody Note note) {
+    public NoteEntity updateNote(@PathVariable Long id, @RequestBody NoteEntity note) {
         return service.updateNote(id, note);
     }
     @DeleteMapping("/{id}")

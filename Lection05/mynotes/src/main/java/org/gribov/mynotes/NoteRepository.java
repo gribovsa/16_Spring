@@ -3,6 +3,7 @@ package org.gribov.mynotes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  * В наследуемом интерфейсе мы указываем два параметра типа для JpaRepository: тип нашей
  * сущности (NoteEntity) и тип идентификатора (Long).
  */
-
+@Repository
 public interface NoteRepository extends JpaRepository<NoteEntity, Long> {
     /*
         JpaRepository предоставляет нам множество полезных методов,
