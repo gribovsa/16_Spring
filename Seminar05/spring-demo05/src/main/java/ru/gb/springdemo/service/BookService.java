@@ -20,6 +20,9 @@ public class BookService {
      * @return возвращает список книг
      */
     public List<Book> getAllBook() {
+        bookRepository.save(new Book(null, "Дети Арбата"));
+        bookRepository.save(new Book(null, "Война и Мир"));
+        bookRepository.save(new Book(null, "Эра милосердия"));
         return bookRepository.findAll();
     }
 

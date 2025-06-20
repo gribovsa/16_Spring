@@ -27,4 +27,9 @@ public class Reader {
         this.id = sequence++;
         this.name = name;
     }
+
+    public Reader(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

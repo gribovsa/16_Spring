@@ -18,6 +18,9 @@ public class ReaderService {
      * Метод возвращает список всех читателей
      */
     public List<Reader> getAllReader() {
+        readerRepository.save(new Reader(null,"Иванов"));
+        readerRepository.save(new Reader(null,"Петров"));
+        readerRepository.save(new Reader(null,"Сидоров"));
         return readerRepository.findAll();
     }
 
