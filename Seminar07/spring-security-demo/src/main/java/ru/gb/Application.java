@@ -40,12 +40,13 @@ public class Application {
 		User user = new User();
 		user.setId(id++);
 		user.setLogin(login);
-		user.setPassword(login);
-		user.setRole(login);
+		user.setPassword(login); //пароль совпадает с логином
+		user.setRole(login); // роль совпадает с логином
 		repository.save(user);
 	}
 
 
 	//остановился на  securityFilterChain 57:54
+	//остановился на keycloak (контейнер на docker) - генерирует JWT токены 2:00:00
 
 }
