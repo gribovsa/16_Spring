@@ -28,12 +28,16 @@ class CustomerControllerTest extends JUnitSpringBootBase {
   //
 
   @Autowired
-  WebTestClient webTestClient; // "инжектим" класс, чтобы отправлять запросы на наш сервер
+  WebTestClient webTestClient; // инжектим класс spring framework, чтобы отправлять запросы на контроллер нашего сервера
   @Autowired
-  CustomerRepository customerRepository;
+  CustomerRepository customerRepository; //инжектим наш бин репозиторий
   @Autowired
-  JdbcTemplate jdbcTemplate;
+  JdbcTemplate jdbcTemplate;//инжектим spring класс, позволяющий делать sql запросы
 
+
+  /**
+   * Объект, формирует JSON, который будем использовать как тело запроса/ответа
+   */
   @Data
   static class JUnitCustomerResponse {
     private Long id;
@@ -41,9 +45,12 @@ class CustomerControllerTest extends JUnitSpringBootBase {
   }
 
 
+  /**
+   * Имитация успешного поиска покупателя по ID
+   */
   @Test
   void testFindByIdSuccess() {
-    // подготовил данные
+    // подготовил данные, добавил в репозиторий покупателя с именем random
     Customer expected = customerRepository.save(Customer.ofName("random"));
 
     JUnitCustomerResponse responseBody = webTestClient.get()
@@ -58,8 +65,12 @@ class CustomerControllerTest extends JUnitSpringBootBase {
     Assertions.assertEquals(expected.getName(), responseBody.getName());
   }
 
+  /**
+   * Имитация не успешного поиска (посылаем get запрос на несуществующий идентификатор)
+   */
   @Test
   void testFindByIdNotFound() {
+    //находим максимальное значение id в таблице customer используя sql запрос
     Long maxId = jdbcTemplate.queryForObject("select max(id) from customer", Long.class);
 
     webTestClient.get()
@@ -72,7 +83,7 @@ class CustomerControllerTest extends JUnitSpringBootBase {
   @Test
   void testGetAll() {
 
-    // Подготовил данные - заполнил тестовый репозиторий
+    // Подготовил данные - заполнил тестовый репозиторий покупателями
     customerRepository.saveAll(List.of(
       Customer.ofName("first"),
       Customer.ofName("second")
@@ -122,6 +133,5 @@ class CustomerControllerTest extends JUnitSpringBootBase {
     Assertions.assertTrue(customerRepository.findById(request.getId()).isPresent());
   }
 
-}
 
-// остановился на 1:22:16
+}
