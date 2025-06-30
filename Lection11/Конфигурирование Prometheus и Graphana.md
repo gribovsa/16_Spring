@@ -83,7 +83,7 @@ root@NB-IMBA-040:~/prometheus# docker run --name prometheus -d -p 9090:9090 -v $
 1. Запуск докер контейнера, аналогично Prometheus
 
 ```
-docker run -d -p 3000:3000 grafana/grafana - targets: ['localhost:8080']
+docker run --name=grafana -d -p 3000:3000 grafana/grafana
 ```
 
 2. Теперь, открываем веб-интерфейс Grafana. По умолчанию это http://localhost:3000/.
@@ -92,10 +92,13 @@ docker run -d -p 3000:3000 grafana/grafana - targets: ['localhost:8080']
 3. Первым делом, давайте добавим Prometheus как источник данных. Заходим в
 Settings > Data Sources > Add data source и выбираем Prometheus. В поле HTTP URL
 вводим адрес, по которому доступен ваш Prometheus (обычно это
-http://localhost:9090). Сохраняем и тестируем. Если все настроено правильно,
+http://localhost:9090), в лекции (http://host.docker.internal:9090). Сохраняем и тестируем. Если все настроено правильно,
 Grafana скажет, что все отлично.
 
-
+```
+Successfully queried the Prometheus API.
+Next, you can start to visualize data by building a dashboard, or by querying data in the Explore view.
+```
 
 
 
