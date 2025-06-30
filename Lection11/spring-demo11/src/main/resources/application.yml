@@ -9,4 +9,20 @@ spring:
       ddl-auto: update
   application:
   max-allowed-books: 15
-
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+info:
+  app:
+    name: "My Cool App"
+    version: "1.0.0"
+    description: "This app does something awesome!"
