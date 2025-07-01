@@ -1,9 +1,11 @@
 package ru.gb.springdemo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.event.EventListener;
 import ru.gb.springdemo.aspect.Timer;
 import ru.gb.springdemo.model.Book;
@@ -17,8 +19,9 @@ import ru.gb.springdemo.repository.UsersRepository;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-
+@Slf4j
 @SpringBootApplication
+//@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class Application {
 
 	@Autowired
@@ -38,6 +41,7 @@ public class Application {
 	@Timer
 	@EventListener(ApplicationReadyEvent.class)
 	public void generate(){
+		log.info("Запущен метод наполнения репозиториев generate()");
 
 		bookRepository.save(new Book(null, "Дети Арбата"));
 		bookRepository.save(new Book(null, "Война и Мир"));

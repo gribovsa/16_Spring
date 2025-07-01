@@ -1,0 +1,12 @@
+server:
+  port: 8281
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: book-service
+
+timer:
+  enabled: true

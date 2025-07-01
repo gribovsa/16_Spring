@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="02-book-service" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="ru.gb.BookApplication" />
+    <module name="book-service" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -18,7 +18,7 @@ public class Louiggi implements Brother {
   }
 
   public String method3() {
-    throw new RuntimeException("runtimeexceptionmsg");
+    throw new RuntimeException("runtime exception msg");
   }
 
 }

@@ -17,7 +17,7 @@ public class AspectRunner {
 
   @EventListener(ApplicationReadyEvent.class)
   public void onApplicationReady() {
-    System.out.println(brothers);
+    System.out.println("Видимо список объектов " + brothers);
     for (Brother brother : brothers) {
       try {
         brother.method1("1", 2);

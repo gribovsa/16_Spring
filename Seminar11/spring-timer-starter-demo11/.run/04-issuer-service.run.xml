@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="04-issuer-service" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="ru.gb.IssuerApplication" />
+    <module name="issuer-service" />
+    <method v="2" />
+  </configuration>
+</component>
