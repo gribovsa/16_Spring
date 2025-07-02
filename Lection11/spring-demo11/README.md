@@ -43,6 +43,10 @@ info:
     description: "This app does something awesome!"
 ```
 Информация теперь доступна по ссылкам 
-http://localhost:8080/actuator/health
-http://localhost:8080/actuator/info
-http://localhost:8080/actuator/metrics
+* http://localhost:8080/actuator/health
+* http://localhost:8080/actuator/info
+* http://localhost:8080/actuator/metrics
+* http://localhost:8080/actuator/env
+
+Метрики прометеуса (Prometheus - как драйвер собирающий метрики и предоставляющий их SCADA Grafana)
+* http://localhost:8080/actuator/prometheus

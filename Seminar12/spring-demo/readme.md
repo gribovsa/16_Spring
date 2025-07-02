@@ -1,0 +1,1 @@
+Пример паттерна Chain of responsibility - цепочка обязанностей
